@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Square" x:Class="Square.SquarePage">
+	<Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+		<StackLayout BackgroundColor="Silver"></StackLayout>
+		<StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+			<local:BorderedEntry BorderColor="Black" HorizontalOptions="FillAndExpand" HeightRequest="30" />
+			<Button WidthRequest="50" HeightRequest="30" Text="Buscar">
+				<Button.Effects>
+					<local:BlueButtonEffect />
+				</Button.Effects>
+			</Button>
+		</StackLayout>
+	</Grid>
+</ContentPage>

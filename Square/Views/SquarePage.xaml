@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Square" x:Class="Square.SquarePage">
+    <ContentPage.BindingContext>
+        <local:SquareViewModel />
+    </ContentPage.BindingContext>
 	<Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-		<StackLayout BackgroundColor="Silver"></StackLayout>
-		<StackLayout Orientation="Horizontal" HeightRequest="30" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
-			<local:BorderedEntry BorderColor="Black" HorizontalOptions="FillAndExpand" HeightRequest="30" />
-			<Button WidthRequest="50" HeightRequest="30" Text="Buscar">
+		<local:CustomMap
+            x:Name="MyMap"
+            MapType="Street"
+            ItemsSource="{Binding Locations}"/>
+		<StackLayout Orientation="Horizontal" HeightRequest="35" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+			<local:BorderedEntry BorderColor="Black" HorizontalOptions="FillAndExpand" HeightRequest="35" Text="{Binding SearchCriteria}" />
+			<Button WidthRequest="80" HeightRequest="35" Text="Buscar" Command="{Binding SearchCommand}">
 				<Button.Effects>
 					<local:BlueButtonEffect />
 				</Button.Effects>

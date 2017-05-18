@@ -28,7 +28,7 @@ namespace Square.iOS.Protocols
                 };
             }
             var annotationView = mapView.DequeueReusableAnnotation(customPin.Id);
-            if(annotationView != null)
+            if(annotationView == null)
             {
                 annotationView = new CustomMkAnnotationView(annotation, customPin.Id)
                 {

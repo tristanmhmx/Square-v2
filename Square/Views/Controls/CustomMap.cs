@@ -20,5 +20,6 @@ namespace Square
         {
             //await Application.Current.MainPage.Navigation.PushAsync();
         };
+
     }
 }

@@ -7,6 +7,7 @@
 		<local:CustomMap
             x:Name="MyMap"
             MapType="Street"
+            IsShowingUser="true"
             ItemsSource="{Binding Locations}"/>
 		<StackLayout Orientation="Horizontal" HeightRequest="35" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
 			<local:BorderedEntry BorderColor="Black" HorizontalOptions="FillAndExpand" HeightRequest="35" Text="{Binding SearchCriteria}" />

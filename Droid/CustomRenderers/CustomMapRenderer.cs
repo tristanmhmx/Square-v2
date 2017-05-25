@@ -8,6 +8,7 @@ using Square.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps.Android;
 using Xamarin.Forms.Maps;
+using System.Linq;
 
 [assembly: ExportRenderer(typeof(CustomMap), typeof(CustomMapRenderer))]
 namespace Square.Droid.CustomRenderers
@@ -39,6 +40,9 @@ namespace Square.Droid.CustomRenderers
         {
             nativeMap = googleMap;
             nativeMap.MarkerClick += NativeMap_MarkerClick;
+			nativeMap.MyLocationEnabled = true;
+			nativeMap.UiSettings.ZoomControlsEnabled = true;
+			nativeMap.UiSettings.MyLocationButtonEnabled = true;
         }
 
         private void ItemsSource_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -46,7 +50,6 @@ namespace Square.Droid.CustomRenderers
             if(e.NewItems != null)
             {
 				nativeMap.Clear();
-				nativeMap.MyLocationEnabled = true;
                 foreach(CustomPin item in e.NewItems)
                 {
                     var markerWithIcon = new MarkerOptions();
@@ -61,7 +64,20 @@ namespace Square.Droid.CustomRenderers
 
         private void NativeMap_MarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
         {
-            
+            var pin = GetCustomPin(e.Marker);
+            if (pin != null) formsMap.Navigate.Invoke(pin.Id);
+        }
+
+        CustomPin GetCustomPin(Marker marker)
+        {
+            try
+            {
+                return formsMap?.ItemsSource?.FirstOrDefault(pin => pin.Pin.Position.Latitude == marker.Position.Latitude && pin.Pin.Position.Longitude == marker.Position.Longitude);
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
         }
     }
 }

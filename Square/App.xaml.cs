@@ -34,6 +34,12 @@ namespace Square
 			locator.DesiredAccuracy = 50;
 			var position = await locator.GetPositionAsync(10000);
             CurrentPosition = new Position(position.Latitude, position.Longitude);
+			
+            //Move map
+			var mainpage = this.MainPage as NavigationPage;
+			var mapPage = mainpage?.CurrentPage as SquarePage;
+			mapPage?.CenterMap();
+
             await locator.StartListeningAsync(5, 10, true);
             locator.PositionChanged += Locator_PositionChanged;
         }

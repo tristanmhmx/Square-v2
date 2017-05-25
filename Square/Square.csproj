@@ -30,6 +30,9 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="Views\SquarePage.xaml" />
+    <EmbeddedResource Include="Views\LocationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -47,6 +50,12 @@
     <Compile Include="Models\SquareModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Interfaces\IDataService.cs" />
+    <Compile Include="Views\LocationPage.xaml.cs">
+      <DependentUpon>LocationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\LocationViewModel.cs" />
+    <Compile Include="Models\LocationModel.cs" />
+    <Compile Include="Interfaces\IPhotoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">

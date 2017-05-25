@@ -13,11 +13,15 @@ namespace Square.iOS
 		protected override void OnAttached()
 		{
 			Control.BackgroundColor = UIColor.FromRGB(0, 148, 207);
+			var button = Control as UIButton;
+			button.SetTitleColor(UIColor.White, UIControlState.Normal);
 		}
 
 		protected override void OnDetached()
 		{
 			Control.BackgroundColor = UIColor.White;
+			var button = Control as UIButton;
+			button.SetTitleColor(UIColor.Black, UIControlState.Normal);
 		}
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Square.Models;
+using Square.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
@@ -18,7 +19,7 @@ namespace Square
         }
         public Action<string> Navigate = async (string obj) =>
         {
-            //await Application.Current.MainPage.Navigation.PushAsync();
+            await Application.Current.MainPage.Navigation.PushAsync(new LocationPage(obj));
         };
 
     }

@@ -9,5 +9,11 @@ namespace Square
 		{
 			InitializeComponent();
 		}
+        public void CenterMap()
+        {
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
+                new Position(App.Current.CurrentPosition.Latitude, App.Current.CurrentPosition.Longitude), 
+                Distance.FromKilometers(1)));
+        }
 	}
 }

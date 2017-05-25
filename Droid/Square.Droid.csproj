@@ -172,6 +172,8 @@
     <Compile Include="CustomRenderers\CustomMapRenderer.cs" />
     <Compile Include="Dependencies\DataService.cs" />
     <Compile Include="MainApplication.cs" />
+    <Compile Include="Activities\PhotoActivity.cs" />
+    <Compile Include="Dependencies\PhotoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -189,11 +191,15 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\dot.png" />
     <AndroidResource Include="Resources\drawable\pin.png" />
+    <AndroidResource Include="Resources\drawable\TakePhotoButton.png" />
+    <AndroidResource Include="Resources\layout\CameraLayout.axml" />
+    <AndroidResource Include="Resources\drawable\noimage.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Effects\" />
     <Folder Include="CustomRenderers\" />
     <Folder Include="Dependencies\" />
+    <Folder Include="Activities\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

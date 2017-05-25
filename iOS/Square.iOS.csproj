@@ -143,6 +143,7 @@
     <Folder Include="Delegates\" />
     <Folder Include="Protocols\" />
     <Folder Include="Dependencies\" />
+    <Folder Include="ViewControllers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -160,10 +161,17 @@
     <Compile Include="CustomRenderers\CustomMapRenderer.cs" />
     <Compile Include="Protocols\MapDelegate.cs" />
     <Compile Include="Dependencies\DataService.cs" />
+    <Compile Include="Dependencies\PhotoService.cs" />
+    <Compile Include="ViewControllers\CameraContoller.cs" />
+    <Compile Include="ViewControllers\CameraContoller.designer.cs">
+      <DependentUpon>CameraContoller.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\pin.png" />
     <BundleResource Include="Resources\dot.png" />
+    <BundleResource Include="Resources\TakePhotoButton.png" />
+    <BundleResource Include="Resources\noimage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

@@ -7,6 +7,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Gms.Common;
+using Square.Droid.Services;
 
 namespace Square.Droid
 {
@@ -25,6 +27,30 @@ namespace Square.Droid
             Xamarin.FormsMaps.Init(this, bundle);
 
 			LoadApplication(new App());
+
+            if(IsPlayServicesAvailable())
+            {
+                var intent = new Intent(this, typeof(NotificationsIntentService));
+                StartService(intent);
+            }
 		}
+
+        bool IsPlayServicesAvailable()
+        {
+            int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+            if(resultCode != ConnectionResult.Success)
+            {
+                if(GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                {
+                    return false;
+                }
+                else{
+                    return false;
+                }
+            }
+            else{
+                return true;
+            }
+        }
 	}
 }

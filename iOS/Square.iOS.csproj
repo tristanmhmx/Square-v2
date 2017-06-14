@@ -166,6 +166,7 @@
     <Compile Include="ViewControllers\CameraContoller.designer.cs">
       <DependentUpon>CameraContoller.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dependencies\AppUrlService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\pin.png" />

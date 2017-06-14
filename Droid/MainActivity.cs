@@ -13,6 +13,10 @@ using Square.Droid.Services;
 namespace Square.Droid
 {
 	[Activity(Label = "Square.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [IntentFilter(new []{Android.Content.Intent.ActionView},
+                  DataScheme = "square",
+                  DataHost = "location",
+                  Categories = new []{Android.Content.Intent.CategoryDefault, Android.Content.Intent.CategoryBrowsable})]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
 		protected override void OnCreate(Bundle bundle)
@@ -28,7 +32,7 @@ namespace Square.Droid
 
 			LoadApplication(new App());
 
-            if(IsPlayServicesAvailable())
+                if(IsPlayServicesAvailable())
             {
                 var intent = new Intent(this, typeof(NotificationsIntentService));
                 StartService(intent);

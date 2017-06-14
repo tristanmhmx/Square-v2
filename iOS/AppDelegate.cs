@@ -47,6 +47,7 @@ namespace Square.iOS
         }
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
         {
+
             UIApplication.SharedApplication.ApplicationIconBadgeNumber = 1;
             base.ReceivedRemoteNotification(application, userInfo);
         }

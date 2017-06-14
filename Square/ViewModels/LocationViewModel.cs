@@ -125,7 +125,16 @@ namespace Square.ViewModels
 
         private void NavigateTo(object obj)
         {
-            
+            var url = $"waze://?ll={Latitude},{Longitude}&navigate=yes";
+            switch(Device.OS)
+            {
+                case TargetPlatform.Android:
+                    Device.OpenUri(new Uri(url));
+                    break;
+                case TargetPlatform.iOS:
+                    DependencyService.Get<IAppUrlService>().OpenUrl(url);
+                    break;
+            }
         }
 
         private async void ReadPicture(object obj)
